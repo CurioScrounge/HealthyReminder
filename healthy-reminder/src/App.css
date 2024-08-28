@@ -1,0 +1,23 @@
+main{
+    text-align: center;
+}
+
+body{
+    background-color: #2D7C66;
+    color:#E7FBE6;
+}
+
+.timer{
+    margin-left:34vw;
+    max-width:32vw;
+    margin-top:26vh;
+}
+
+button{
+    background-color: transparent;
+    color:#FFFFFF;
+    border:0;
+    display: inline-block;
+    width:80px;
+    cursor:pointer;
+}

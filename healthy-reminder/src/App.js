@@ -1,16 +1,13 @@
 import './App.css';
 import React from 'react';
+import Timer from './Timer'
 
 
 function App() {
-  const date = new Date();
-  const showTime = date.getHours() 
-      + ':' + date.getMinutes() 
-      + ":" + date.getSeconds();
   return (
-    <div className="Timer">
-      
-    </div>    
+    <main>
+    <Timer />  
+    </main> 
   );
 }
 
