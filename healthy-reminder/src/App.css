@@ -2,6 +2,10 @@ main{
     text-align: center;
 }
 
+h1{
+    font-size: 3.8rem;
+}
+
 body{
     background-color: #2D7C66;
     color:#E7FBE6;
@@ -9,8 +13,7 @@ body{
 
 .timer{
     margin-left:34vw;
-    max-width:32vw;
-    margin-top:26vh;
+    max-width:28vw;
 }
 
 button{
@@ -21,3 +24,29 @@ button{
     width:80px;
     cursor:pointer;
 }
+
+
+
+.time-picker {
+    transform:translateY(-30px);
+    display:flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+  }
+
+  .time-picker__sliders{
+    position:relative;
+  }
+  
+  .slider {
+    width: 20vw;
+    cursor: pointer;
+  }
+  
+  .time-picker__output {
+    margin-left:2rem;
+    margin-right:2rem;
+    font-size: 5rem;
+    font-weight: bold;
+  }
