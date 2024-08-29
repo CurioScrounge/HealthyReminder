@@ -14,6 +14,7 @@ function Timer(){
             value={value} 
             maxValue={1} 
             text={`${value * 100}%`} 
+            strokeWidth={5}
             styles={buildStyles({
                 pathColor:'#A28B55',
                 trailColor:'#CBE2B5',
