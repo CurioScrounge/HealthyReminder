@@ -6,7 +6,7 @@ import PauseTimer from './PauseTimer';
 
 
 function Timer(){
-    const value = 0.66;
+    const value = 0;
     return(
         <div>
         <div className='timer'>

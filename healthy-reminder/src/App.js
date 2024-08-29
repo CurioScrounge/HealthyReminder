@@ -4,8 +4,8 @@ import Timer from './Timer'
 
 
 function App() {
-  const [hours, setHours] = useState(12);
-  const [minutes, setMinutes] = useState(30);
+  const [hours, setHours] = useState(0);
+  const [minutes, setMinutes] = useState(0);
 
   const handleHourChange = (e) => {
     const value = parseInt(e.target.value);
@@ -28,7 +28,7 @@ function App() {
         max="23"
         value={hours}
         onChange={handleHourChange}
-        className="slider"
+        class="slider"
       />
     </div>
     <label>Hours</label>
@@ -45,7 +45,7 @@ function App() {
         max="59"
         value={minutes}
         onChange={handleMinuteChange}
-        className="slider"
+        class="slider"
       />
     </div>
     <label>Minutes</label>
