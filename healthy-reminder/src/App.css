@@ -1,6 +1,6 @@
 main{
+    margin-top: 10vh;
     text-align: center;
-    justify-content: center;
     font-family: "Raleway", system-ui;
     font-optical-sizing: auto;
     font-weight: 400;
@@ -21,6 +21,7 @@ body{
 .timer{
     margin-left: 37.5vw;
     max-width:25vw;
+    transition: opacity 0.5s ease;
 }
 
 button{
@@ -35,7 +36,6 @@ button{
 
 
 .time-picker {
-    transform:translateY(-30px);
     display:flex;
     justify-content: center;
     text-align: center;
@@ -44,6 +44,19 @@ button{
 
   .time-picker__sliders{
     position:relative;
+  }
+  .settings{
+    transition: opacity 0.5s ease;
+  }
+  
+  .back-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+  
+  .end-time-display {
+    margin-bottom: 10px;
   }
   
   .slider {
@@ -58,7 +71,7 @@ button{
     transition: opacity .6s;
   }
 
-  .slider::-webkit-slider-thumb {
+  .thumb{
     -webkit-appearance: none;
     appearance: none;
     min-width: 0.8rem;

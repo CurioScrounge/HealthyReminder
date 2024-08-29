@@ -1,60 +1,97 @@
 import './App.css';
-import React, {useState} from 'react';
-import Timer from './Timer'
-
+import React, { useState, useEffect } from 'react';
+import Timer from './Timer';
+import EndTime from './EndTime.js';
 
 function App() {
-  const [hours, setHours] = useState(0);
-  const [minutes, setMinutes] = useState(0);
+  const [endTime, setEndTime] = useState({ hours: 0, minutes: 0 });
+  const [duration, setDuration] = useState(45);
+  const [showSettings, setShowSettings] = useState(true);
+  const [elapsedTime, setElapsedTime] = useState(0);
+  const [showSleepMessage, setShowSleepMessage] = useState(false);
 
-  const handleHourChange = (e) => {
-    const value = parseInt(e.target.value);
-    setHours(value);
+  useEffect(() => {
+    const checkTime = () => {
+      const now = new Date();
+      const currentHour = now.getHours();
+      setShowSleepMessage(currentHour >= 23);
+    };
+    checkTime();
+  }, []);
+
+  const handleStart = () => {
+    const now = new Date();
+    const end = new Date();
+    end.setHours(endTime.hours, endTime.minutes, 0, 0);
+
+    if (
+      (endTime.hours < 4 || endTime.hours >= 23) &&
+      !window.confirm('End time is late. Are you sure?')
+    ) {
+      return;
+    }
+
+    if (end <= now) {
+      end.setDate(end.getDate() + 1);
+    }
+
+    setShowSettings(false);
   };
 
-  const handleMinuteChange = (e) => {
-    const value = parseInt(e.target.value);
-    setMinutes(value);
+  const handleBack = () => {
+    setShowSettings(true);
   };
+
+  const handleStartAfresh = () => {
+    setElapsedTime(0);
+    setShowSettings(true);
+  };
+
+  const resetTimer = () => {
+    setElapsedTime(0);
+    setEndTime({ hours: 0, minutes: 0 });
+    setShowSettings(true);
+  };
+
   return (
     <main>
-      <h1>Run timer until</h1>
-    <div className="time-picker">
-    <div className="time-picker__sliders">
-    <div className="time-picker__slider">
-      <input
-        type="range"
-        min="0"
-        max="23"
-        value={hours}
-        onChange={handleHourChange}
-        class="slider"
-      />
+      {showSleepMessage && <div className="sleep-message">It's late! Consider sleeping.</div>}
+      {showSettings ? (
+        <div className="settings">
+          <EndTime endTime={endTime} setEndTime={setEndTime} />
+          <DurationSelector setDuration={setDuration} />
+          <button onClick={handleStart}>Start Timer</button>
+        </div>
+      ) : (
+        <Timer
+          endTime={endTime}
+          duration={duration}
+          elapsedTime={elapsedTime}
+          setElapsedTime={setElapsedTime}
+          handleBack={handleBack}
+          handleStartAfresh={handleStartAfresh}
+          resetTimer={resetTimer}
+        />
+      )}
+    </main>
+  );
+}
+
+function DurationSelector({ setDuration }) {
+  return (
+    <div>
+      <label htmlFor="duration">Select Duration:</label>
+      <select
+        id="duration"
+        onChange={(e) => setDuration(parseInt(e.target.value))}
+      >
+        {Array.from({ length: 51 }, (_, i) => i + 10).map((minutes) => (
+          <option key={minutes} value={minutes}>
+            {minutes} minutes
+          </option>
+        ))}
+      </select>
     </div>
-    <label>Hours</label>
-    </div>
-    <div className="time-picker__output">
-      {hours.toString().padStart(2, '0')}:
-      {minutes.toString().padStart(2, '0')}
-    </div>
-    <div className="time-picker__sliders">
-    <div className="time-picker__slider">
-      <input
-        type="range"
-        min="0"
-        max="59"
-        value={minutes}
-        onChange={handleMinuteChange}
-        class="slider"
-      />
-    </div>
-    <label>Minutes</label>
-    </div>
-  </div>
-  <Timer />
-  </main>
-    
-    
   );
 }
 
