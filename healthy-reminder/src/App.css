@@ -2,13 +2,14 @@ main{
     text-align: center;
     font-family: "Raleway", system-ui;
     font-optical-sizing: auto;
-    height:100%;
+    height:88vh;
     font-weight: 400;
     font-style: normal;
+    align-content: center;
 }
 
 h1{
-    font-size: 3.3rem;
+    font-size: 4rem;
     font-weight: 600;
 }
 
@@ -20,7 +21,7 @@ body{
 .timer{
     margin-left: 37.5vw;
     max-width:25vw;
-    transition: opacity 0.5s ease;
+    transition: opacity 0.8s ease;
 }
 
 button{
@@ -31,8 +32,6 @@ button{
     width:67px;
     cursor:pointer;
 }
-
-
 
 .time-picker {
     display:flex;
@@ -49,15 +48,41 @@ button{
   }
   
   .back-button {
+    font-family: "Raleway", system-ui;
     position: absolute;
-    top: 10px;
-    left: 10px;
+    top: 35px;
+    left: 25px;
+    font-size: 1.2rem;
+  }
+  .back-button:hover{
+    color: #fffbd3;
+    transition: ease-in 0.25s;
   }
   
   .end-time-display {
-    margin-bottom: 10px;
+    padding: 20px;
+    font-size: 1.5rem;
   }
-  
+
+  .reset{
+    font-family: "Raleway", system-ui;
+    padding: 10px;
+    font-size: 1.2rem;
+    width: 100%;
+  }
+  .reset:hover{
+    color: #bcf733;
+    transition: ease-in 0.25s;
+  }
+
+  .icon{
+    margin-top:20px;
+  }
+  .icon:hover{
+    color: #ffdfa5;
+    transition: ease-in-out 0.3s;
+  }
+
   .slider {
     appearance: none;
     width: 22vw;
@@ -66,7 +91,7 @@ button{
     border-radius: 5px;
     background: #E2F4C5;
     outline: none;
-    opacity: 0.7;
+    opacity: 0.5;
     transition: opacity .6s;
   }
 
@@ -89,7 +114,7 @@ button{
   .time-picker__output {
     margin-left:2rem;
     margin-right:2rem;
-    font-size: 4.8rem;
+    font-size: 7rem;
     font-weight: 600;
   }
 
@@ -130,3 +155,27 @@ button{
     border-radius: 8px;
     text-align: center;
   }
+
+  .buttons{
+    width:100%;
+    font-family: "Raleway", system-ui;
+    font-size: 1.5rem;
+    margin-top:40px;
+  }
+  .buttons:hover{
+    color: #ffad2a;
+    transition: ease 0.3s;
+  }
+
+  .duration{
+    margin-top:40px;
+    font-size: 1.8rem;
+    justify-content: center;
+    }
+
+
+.sleep-message{
+  padding:10px;
+  font-size: 1.2rem;
+  color:#aff390;
+}

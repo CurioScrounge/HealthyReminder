@@ -84,7 +84,7 @@ function Timer({ endTime, duration, elapsedTime, setElapsedTime, handleBack, res
       ) : (
         <PauseTimer onClick={pauseTimer} />
       )}
-      <button onClick={resetTimer}>Reset Timer</button>
+      <button className='reset' onClick={resetTimer}>Reset Timer Settings</button>
     </div>
   );
 }

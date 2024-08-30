@@ -2,7 +2,7 @@ import './App.css';
 
 function PlayTimer(props) {
   return (
-    <button {...props}>
+    <button className='icon' {...props}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
