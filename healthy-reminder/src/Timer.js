@@ -5,9 +5,15 @@ import React, { useState, useEffect, useRef } from 'react';
 import PlayTimer from './PlayTimer';
 import PauseTimer from './PauseTimer';
 
-function Timer({ endTime, duration, elapsedTime, setElapsedTime, handleBack, resetTimer }) {
+function Timer({ endTime, duration, elapsedTime, setElapsedTime, handleBack, resetTimer, handleEndTimer, autoStart }) {
   const [isRunning, setIsRunning] = useState(false);
   const timerRef = useRef(null);
+
+  useEffect(() => {
+    if (autoStart) {
+      startTimer();
+    }
+  }, [autoStart]);
 
   const calculateEndTime = () => {
     const now = new Date();
@@ -22,6 +28,7 @@ function Timer({ endTime, duration, elapsedTime, setElapsedTime, handleBack, res
   };
 
   const startTimer = () => {
+    if (!calculateEndTime()) return;
     setIsRunning(true);
     const totalDuration = duration * 60 * 1000;
     const startTime = new Date().getTime() - elapsedTime;
@@ -29,12 +36,14 @@ function Timer({ endTime, duration, elapsedTime, setElapsedTime, handleBack, res
     timerRef.current = setInterval(() => {
       const now = new Date().getTime();
       const timePassed = now - startTime;
-      const adjustedTimePassed = Math.min(timePassed, totalDuration);
-      if (adjustedTimePassed >= totalDuration || !calculateEndTime()) {
+      const timeRemaining = totalDuration - timePassed;
+      if (timeRemaining <= 0) {
         clearInterval(timerRef.current);
         setIsRunning(false);
+        setElapsedTime(0);
+        handleEndTimer();
       } else {
-        setElapsedTime(adjustedTimePassed);
+        setElapsedTime(timePassed);
       }
     }, 1000);
   };
@@ -48,8 +57,9 @@ function Timer({ endTime, duration, elapsedTime, setElapsedTime, handleBack, res
     return () => clearInterval(timerRef.current);
   }, []);
 
-  const minutes = Math.floor(elapsedTime / 60000);
-  const seconds = Math.floor((elapsedTime % 60000) / 1000);
+  const timeRemaining = duration * 60 * 1000 - elapsedTime;
+  const minutes = Math.floor(timeRemaining / 60000);
+  const seconds = Math.floor((timeRemaining % 60000) / 1000);
 
   return (
     <div className="timer">
@@ -59,7 +69,7 @@ function Timer({ endTime, duration, elapsedTime, setElapsedTime, handleBack, res
         {endTime.minutes.toString().padStart(2, '0')}
       </div>
       <CircularProgressbar
-        value={elapsedTime}
+        value={timeRemaining}
         maxValue={duration * 60 * 1000}
         text={`${minutes}:${seconds.toString().padStart(2, '0')}`}
         strokeWidth={5}

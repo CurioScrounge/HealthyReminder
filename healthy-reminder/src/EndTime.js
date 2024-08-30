@@ -24,7 +24,7 @@ function EndTime({ endTime, setEndTime }) {
           <div className="time-picker__slider">
             <input
               type="range"
-              min="0"
+              min="4"
               max="23"
               value={hours}
               onChange={handleHourChange}
