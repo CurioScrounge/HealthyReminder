@@ -149,7 +149,7 @@ function DurationSelector({ setDuration }) {
       <Select
         id="duration"
         options={options}
-        defaultValue={options[40]} // Default to 45 minutes
+        defaultValue={options[44]} // Default to 45 minutes
         onChange={handleChange}
         isSearchable={false}
         styles={{
