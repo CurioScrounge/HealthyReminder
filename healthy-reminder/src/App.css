@@ -18,10 +18,16 @@ body{
     color:#E7FBE6;
 }
 
-.timer{
-    margin-left: 37.5vw;
-    max-width:25vw;
-    transition: opacity 0.8s ease;
+.contain_Timer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.timer {
+  width: 25vw;
+  min-width: 350px;
+  transition: opacity 0.8s ease;
 }
 
 button{
@@ -62,6 +68,7 @@ button{
   .end-time-display {
     padding: 20px;
     font-size: 1.5rem;
+    width:100%;
   }
 
   .reset{
@@ -178,4 +185,18 @@ button{
   padding:10px;
   font-size: 1.2rem;
   color:#aff390;
+}
+
+@media(max-width:700px){
+  h1{
+    font-size: 3rem;
+  }
+  .time-picker__output{
+    font-size: 5.4rem;
+    margin-left:0.5rem;
+    margin-right:0.5rem;
+  }
+  .duration{
+    font-size: 1.8rem;
+  }
 }

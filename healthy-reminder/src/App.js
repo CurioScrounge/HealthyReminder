@@ -113,6 +113,7 @@ function App() {
           <button className='buttons' onClick={handleStart}>Start Timer</button>
         </div>
       ) : currentPage === 'timer' ? (
+        <div className='contain_Timer'>
         <Timer
           endTime={endTime}
           duration={duration}
@@ -124,6 +125,7 @@ function App() {
           handleEndTimer={handleEndTimer}
           autoStart={true}
         />
+        </div>
       ) : (
         <EndPage handleBackToTimer={handleBackToTimer} />
       )}

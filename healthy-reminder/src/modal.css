@@ -8,7 +8,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
     z-index: 8;
   }
   
@@ -18,7 +17,8 @@
     font-size: 1.8rem;
     padding: 20px;
     width:40%;
-    height:30%;
+    height:35%;
+    min-height:250px;
     border-radius: 8px;
     text-align: center;
     align-content: center;
