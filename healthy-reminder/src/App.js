@@ -134,7 +134,7 @@ function App() {
 }
 
 function DurationSelector({ setDuration }) {
-  const options = Array.from({ length: 59 }, (_, i) => ({
+  const options = Array.from({ length: 60 }, (_, i) => ({
     value: i + 1,
     label: `${i + 1} minutes`
   }));
@@ -149,7 +149,7 @@ function DurationSelector({ setDuration }) {
       <Select
         id="duration"
         options={options}
-        defaultValue={options[30]} // Default to 45 minutes
+        defaultValue={options[40]} // Default to 45 minutes
         onChange={handleChange}
         isSearchable={false}
         styles={{
