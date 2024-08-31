@@ -134,9 +134,9 @@ function App() {
 }
 
 function DurationSelector({ setDuration }) {
-  const options = Array.from({ length: 46 }, (_, i) => ({
-    value: i + 15,
-    label: `${i + 15} minutes`
+  const options = Array.from({ length: 59 }, (_, i) => ({
+    value: i + 1,
+    label: `${i + 1} minutes`
   }));
 
   const handleChange = (selectedOption) => {
