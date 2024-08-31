@@ -192,9 +192,9 @@ button{
     font-size: 3rem;
   }
   .time-picker__output{
-    font-size: 5.4rem;
-    margin-left:0.5rem;
-    margin-right:0.5rem;
+    font-size: 5.2rem;
+    margin-left:0.2rem;
+    margin-right:0.2rem;
   }
   .duration{
     font-size: 1.8rem;
