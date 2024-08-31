@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Timer from './Timer';
 import EndTime from './EndTime';
 import EndPage from './EndPage';
-import alertAudio from './assets/alert.mp3'; // Import the audio file
+import alertAudio from './assets/alert2.mp3';
 import Modal from './Modal';
 import Select from 'react-select';
 
@@ -75,6 +75,7 @@ function App() {
   const handleEndTimer = () => {
     setShowEndPopup(true);
     const audio = audioRef.current;
+    audio.volume = 1;
     audio.loop = true;
     audio.play().catch(error => console.error('Audio play error:', error));
   };
