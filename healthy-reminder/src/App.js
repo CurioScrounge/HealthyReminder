@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Timer from './Timer';
 import EndTime from './EndTime';
 import EndPage from './EndPage';
-import alertAudio from './assets/alert2.mp3';
+import alertAudio from './assets/alert3.mp3';
 import Modal from './Modal';
 import Select from 'react-select';
 
