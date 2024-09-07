@@ -178,7 +178,36 @@ button{
     margin-top:40px;
     font-size: 1.8rem;
     justify-content: center;
+    align-content: center;
     }
+
+.end-page{
+  width:100%;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+a{
+font-size: 6rem;
+color:#ff9d2c
+}
+a:hover{
+  transition:linear 0.25s;
+  color:#9ffd08
+}
+
+.back_to_timer{
+  position: absolute;
+  margin-top: 300px;
+  width: 100%;
+  font-size: 2rem;
+  font-family: "Raleway", system-ui;
+}
+.back_to_timer:hover{
+  transition:linear 0.2s;
+  color:#104879
+}
 
 
 .sleep-message{
@@ -199,4 +228,12 @@ button{
   .duration{
     font-size: 1.8rem;
   }
+
+  a{
+    font-size: 4.5rem;
+    }
+    
+    .back_to_timer{
+      font-size: 1.8rem;
+    }
 }
